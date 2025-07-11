@@ -71,7 +71,7 @@ const Index = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-[#58A6FF] to-[#79C0FF] bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold bg-gradient-to-r from-[#FF6B35] via-[#FFA500] to-[#FFD700] bg-clip-text text-transparent animate-glow">
                 DevOps Engineer
               </h1>
               <p className="text-xl text-[#8B949E] leading-relaxed">
@@ -82,13 +82,17 @@ const Index = () => {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button className="bg-[#58A6FF] hover:bg-[#4A9EFF] text-black font-semibold">
-                <Icon name="Download" size={16} className="mr-2" />
+              <Button className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#FF8C42] hover:to-[#FFA500] text-white font-semibold animate-pulse-glow transition-all duration-300">
+                <Icon
+                  name="Download"
+                  size={16}
+                  className="mr-2 animate-bounce-slow"
+                />
                 Скачать резюме
               </Button>
               <Button
                 variant="outline"
-                className="border-[#31262D] text-[#58A6FF] hover:bg-[#21262D]"
+                className="border-[#FF6B35] text-[#FF6B35] hover:bg-[#21262D] hover:border-[#FFA500] hover:text-[#FFA500] transition-all duration-300 animate-slide-left"
               >
                 <Icon name="Mail" size={16} className="mr-2" />
                 Связаться
@@ -107,7 +111,7 @@ const Index = () => {
               </span>
             </div>
             <div className="p-6 font-mono">
-              <div className="text-[#58A6FF] mb-2">
+              <div className="text-[#FF8C42] mb-2">
                 ~$ {terminalText}
                 <span className="animate-pulse">|</span>
               </div>
@@ -128,7 +132,11 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-[#21262D] border-[#31262D]">
               <CardContent className="p-6">
-                <Icon name="Code" size={24} className="text-[#58A6FF] mb-4" />
+                <Icon
+                  name="Code"
+                  size={24}
+                  className="text-[#FF8C42] mb-4 animate-float"
+                />
                 <h3 className="text-xl font-semibold mb-3 text-[#F0F6FC]">
                   Опыт работы
                 </h3>
@@ -142,7 +150,11 @@ const Index = () => {
 
             <Card className="bg-[#21262D] border-[#31262D]">
               <CardContent className="p-6">
-                <Icon name="Target" size={24} className="text-[#58A6FF] mb-4" />
+                <Icon
+                  name="Target"
+                  size={24}
+                  className="text-[#FF8C42] mb-4 animate-rotate-slow"
+                />
                 <h3 className="text-xl font-semibold mb-3 text-[#F0F6FC]">
                   Специализация
                 </h3>
@@ -167,20 +179,21 @@ const Index = () => {
             {technologies.map((tech, index) => (
               <Card
                 key={index}
-                className="bg-[#21262D] border-[#31262D] hover:border-[#58A6FF] transition-colors group cursor-pointer"
+                className="bg-[#21262D] border-[#31262D] hover:border-[#FF6B35] transition-all duration-500 group cursor-pointer animate-slide-up hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20"
               >
-                <CardContent className="p-4 text-center">
+                <CardContent className="p-4 text-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Icon
                     name={tech.icon}
                     size={32}
-                    className="text-[#58A6FF] mx-auto mb-3 group-hover:scale-110 transition-transform"
+                    className="text-[#FF8C42] mx-auto mb-3 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 animate-pulse-glow relative z-10"
                   />
-                  <h3 className="font-semibold text-[#F0F6FC] mb-1">
+                  <h3 className="font-semibold text-[#F0F6FC] mb-1 relative z-10">
                     {tech.name}
                   </h3>
                   <Badge
                     variant="secondary"
-                    className="bg-[#31262D] text-[#8B949E] text-xs"
+                    className="bg-[#31262D] text-[#8B949E] text-xs group-hover:bg-[#FF6B35]/20 group-hover:text-[#FFA500] transition-all duration-300 relative z-10"
                   >
                     {tech.category}
                   </Badge>
@@ -201,21 +214,23 @@ const Index = () => {
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="bg-[#21262D] border-[#31262D] hover:border-[#58A6FF] transition-all hover:scale-105"
+                className="bg-[#21262D] border-[#31262D] hover:border-[#FF6B35] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 animate-fade-in group cursor-pointer"
               >
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-[#F0F6FC]">
+                <CardContent className="p-6 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF6B35] via-[#FF8C42] to-[#FFA500] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <h3 className="text-xl font-semibold mb-3 text-[#F0F6FC] group-hover:text-[#FFA500] transition-colors duration-300 relative z-10">
                     {project.title}
                   </h3>
-                  <p className="text-[#8B949E] mb-4 text-sm leading-relaxed">
+                  <p className="text-[#8B949E] mb-4 text-sm leading-relaxed relative z-10">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 relative z-10">
                     {project.tech.map((tech, techIndex) => (
                       <Badge
                         key={techIndex}
                         variant="outline"
-                        className="border-[#58A6FF] text-[#58A6FF] text-xs"
+                        className="border-[#FF6B35] text-[#FF6B35] text-xs hover:bg-[#FF6B35] hover:text-white transition-all duration-300 animate-bounce-slow"
                       >
                         {tech}
                       </Badge>
@@ -237,29 +252,45 @@ const Index = () => {
           </p>
 
           <div className="flex justify-center gap-4 flex-wrap">
-            <Button className="bg-[#58A6FF] hover:bg-[#4A9EFF] text-black font-semibold">
-              <Icon name="Mail" size={16} className="mr-2" />
+            <Button className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#FF8C42] hover:to-[#FFA500] text-white font-semibold animate-glow hover:scale-110 transition-all duration-300">
+              <Icon
+                name="Mail"
+                size={16}
+                className="mr-2 animate-bounce-slow"
+              />
               Email
             </Button>
             <Button
               variant="outline"
-              className="border-[#31262D] text-[#58A6FF] hover:bg-[#21262D]"
+              className="border-[#FF6B35] text-[#FF6B35] hover:bg-[#21262D] hover:border-[#FFA500] hover:text-[#FFA500] transition-all duration-300 animate-slide-left hover:scale-105"
             >
-              <Icon name="Github" size={16} className="mr-2" />
+              <Icon
+                name="Github"
+                size={16}
+                className="mr-2 animate-rotate-slow"
+              />
               GitHub
             </Button>
             <Button
               variant="outline"
-              className="border-[#31262D] text-[#58A6FF] hover:bg-[#21262D]"
+              className="border-[#FF6B35] text-[#FF6B35] hover:bg-[#21262D] hover:border-[#FFA500] hover:text-[#FFA500] transition-all duration-300 animate-slide-right hover:scale-105"
             >
-              <Icon name="Linkedin" size={16} className="mr-2" />
+              <Icon
+                name="Linkedin"
+                size={16}
+                className="mr-2 animate-pulse-glow"
+              />
               LinkedIn
             </Button>
             <Button
               variant="outline"
-              className="border-[#31262D] text-[#58A6FF] hover:bg-[#21262D]"
+              className="border-[#FF6B35] text-[#FF6B35] hover:bg-[#21262D] hover:border-[#FFA500] hover:text-[#FFA500] transition-all duration-300 animate-float hover:scale-105"
             >
-              <Icon name="MessageCircle" size={16} className="mr-2" />
+              <Icon
+                name="MessageCircle"
+                size={16}
+                className="mr-2 animate-bounce-slow"
+              />
               Telegram
             </Button>
           </div>
